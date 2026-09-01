@@ -1,0 +1,72 @@
+name: Daily ingest
+
+on:
+  schedule:
+    # 10:00 AM IST (UTC+5:30) = 04:30 UTC
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-ingest
+  cancel-in-progress: false
+
+env:
+  CHROMA_PATH: data/processed/chroma
+  EMBEDDING_MODEL: all-MiniLM-L6-v2
+  HF_HUB_DISABLE_TELEMETRY: "1"
+  TRANSFORMERS_OFFLINE: "0"
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache Hugging Face model
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+          key: hf-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            hf-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run daily ingest pipeline
+        run: python -m src.ingest.pipeline --strict-fetch
+
+      - name: Upload Chroma index artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: chroma-index-${{ github.run_number }}
+          path: |
+            data/processed/chroma/
+            data/processed/chunks.jsonl
+          retention-days: 14
+          if-no-files-found: error
+
+      - name: Write failure summary
+        if: failure()
+        run: |
+          {
+            echo "## Daily ingest failed"
+            echo ""
+            echo "Run ID: ${{ github.run_id }}"
+            echo "Workflow: ${{ github.workflow }}"
+            echo ""
+            echo "Check the job logs for the failing step (fetch, parse, chunk, embed, retrieve_check, or pytest)."
+            echo "For local recovery see [docs/reingest.md](docs/reingest.md)."
+          } >> "$GITHUB_STEP_SUMMARY"

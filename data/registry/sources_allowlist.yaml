@@ -1,0 +1,52 @@
+# Scheme-fact corpus and citations (Architecture.md §5.1–5.3)
+#
+# Only these five groww.in scheme page URLs may be fetched, indexed, or used
+# as citation_url. AMFI/SEBI links live in educational_links.yaml and must
+# never appear as scheme-fact citations.
+
+allowed_domains:
+  - groww.in
+
+# Hosts that must never be used as scheme-fact citation_url
+excluded_citation_hosts:
+  - hdfcfund.com
+  - moneycontrol.com
+  - valueresearchonline.com
+  - kuvera.in
+  - paytmmoney.com
+  - etmoney.com
+  - morningstar.in
+  - amfiindia.com
+  - sebi.gov.in
+  - investor.sebi.gov.in
+
+sources:
+  - scheme_id: hdfc_mid_cap_direct_growth
+    source_org: groww
+    doc_type: scheme_page
+    citation_url: https://groww.in/mutual-funds/hdfc-mid-cap-fund-direct-growth
+    status: pending_ingest
+
+  - scheme_id: hdfc_silver_etf_fof_direct_growth
+    source_org: groww
+    doc_type: scheme_page
+    citation_url: https://groww.in/mutual-funds/hdfc-silver-etf-fof-direct-growth
+    status: pending_ingest
+
+  - scheme_id: hdfc_bse_sensex_index_direct_growth
+    source_org: groww
+    doc_type: scheme_page
+    citation_url: https://groww.in/mutual-funds/hdfc-bse-sensex-index-fund-direct-growth
+    status: pending_ingest
+
+  - scheme_id: hdfc_large_cap_direct_growth
+    source_org: groww
+    doc_type: scheme_page
+    citation_url: https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+    status: pending_ingest
+
+  - scheme_id: hdfc_elss_tax_saver_direct_growth
+    source_org: groww
+    doc_type: scheme_page
+    citation_url: https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+    status: pending_ingest

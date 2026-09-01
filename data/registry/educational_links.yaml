@@ -1,0 +1,12 @@
+# Used on advisory / out-of-scope / thin-process refusal paths only.
+# These URLs are NOT scheme-fact citations and must not be ingested into Chroma.
+educational_links:
+  - label: AMFI — Investor Corner
+    url: https://www.amfiindia.com/investor-corner
+    source_org: amfi
+
+  - label: SEBI — Investor Education
+    url: https://investor.sebi.gov.in/
+    source_org: sebi
+
+default_refusal_link: https://www.amfiindia.com/investor-corner

@@ -1,0 +1,41 @@
+# HDFC schemes — Groww scheme pages are the corpus and citation sources (see Architecture.md §5.1)
+schemes:
+  - scheme_id: hdfc_mid_cap_direct_growth
+    name: HDFC Mid Cap Fund - Direct Growth
+    category: Mid Cap
+    groww_url: https://groww.in/mutual-funds/hdfc-mid-cap-fund-direct-growth
+    aliases:
+      - hdfc mid cap
+      - mid cap fund direct growth
+
+  - scheme_id: hdfc_silver_etf_fof_direct_growth
+    name: HDFC Silver ETF FoF - Direct Growth
+    category: Commodity / FoF
+    groww_url: https://groww.in/mutual-funds/hdfc-silver-etf-fof-direct-growth
+    aliases:
+      - hdfc silver etf
+      - silver etf fof
+
+  - scheme_id: hdfc_bse_sensex_index_direct_growth
+    name: HDFC BSE Sensex Index Fund - Direct Growth
+    category: Index
+    groww_url: https://groww.in/mutual-funds/hdfc-bse-sensex-index-fund-direct-growth
+    aliases:
+      - hdfc sensex index
+      - bse sensex index fund
+
+  - scheme_id: hdfc_large_cap_direct_growth
+    name: HDFC Large Cap Fund - Direct Growth
+    category: Large Cap
+    groww_url: https://groww.in/mutual-funds/hdfc-large-cap-fund-direct-growth
+    aliases:
+      - hdfc large cap
+      - large cap fund direct growth
+
+  - scheme_id: hdfc_elss_tax_saver_direct_growth
+    name: HDFC ELSS Tax Saver Fund - Direct Plan Growth
+    category: ELSS
+    groww_url: https://groww.in/mutual-funds/hdfc-elss-tax-saver-fund-direct-plan-growth
+    aliases:
+      - hdfc elss
+      - elss tax saver
