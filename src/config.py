@@ -27,6 +27,16 @@ class Settings(BaseSettings):
     groq_chat_max_tokens: int = 256
     retrieval_max_distance: float = 1.15
     retrieval_top_k: int = 3
+    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
+    cors_origin_regex: str = ""
+
+    @property
+    def cors_origins_list(self) -> list[str]:
+        return [
+            origin.strip()
+            for origin in self.cors_origins.split(",")
+            if origin.strip()
+        ]
 
     @property
     def chroma_path_resolved(self) -> Path:

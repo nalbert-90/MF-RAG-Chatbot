@@ -284,18 +284,42 @@ Local equivalent:
 python -m src.ingest.pipeline --strict-fetch
 ```
 
-### Publish strategy (artifact)
+### Publish strategy (git + Railway)
 
-On success, the workflow uploads a GitHub Actions **artifact** containing:
+On success, the workflow:
 
-- `data/processed/chroma/` — rebuilt Chroma index
-- `data/processed/chunks.jsonl` — fact-atom corpus
+1. Uploads a GitHub Actions **artifact** (`chroma-index-*`, 14-day retention) for local recovery.
+2. **Commits** updated `data/processed/chunks.jsonl` and scheme text/manifests to `main` when the corpus changed.
 
-**Deploying the updated index:** download the latest `chroma-index-*` artifact from Actions and copy `chroma/` + `chunks.jsonl` into your host’s `data/processed/` (or set `CHROMA_PATH` accordingly), then restart the API.
+**Production (Railway):** auto-deploy on push rebuilds the Docker image, which runs `python -m src.ingest.run --rebuild` from the committed `chunks.jsonl`. No manual artifact download is required.
 
-Artifacts are retained for 14 days. No `GROQ_API_KEY` is required on this job.
+**Manual fallback:** download the latest artifact and copy `chunks.jsonl` into `data/processed/`, then redeploy.
 
 Workflow file: [`.github/workflows/daily-ingest.yml`](.github/workflows/daily-ingest.yml)
+
+## Production deployment
+
+Host the **API on Railway** and the **React UI on Vercel**. Full step-by-step guide: [`docs/deployment_plan.md`](docs/deployment_plan.md).
+
+| Platform | What runs | Key config |
+|----------|-----------|------------|
+| **Railway** | FastAPI + Chroma + MiniLM (`Dockerfile`, `railway.toml`) | `GROQ_API_KEY`, `CORS_ORIGINS` |
+| **Vercel** | Static Vite SPA (`frontend/`, `vercel.json`) | `VITE_API_BASE_URL` → Railway HTTPS origin |
+
+Quick checklist:
+
+1. Deploy Railway from repo root (Dockerfile builds Chroma from `chunks.jsonl`).
+2. Set `GROQ_API_KEY` and `CORS_ORIGINS` on Railway.
+3. Deploy Vercel with Root Directory `frontend` and `VITE_API_BASE_URL` set to the Railway URL (no trailing slash).
+4. Add the Vercel origin to Railway `CORS_ORIGINS` and redeploy the API.
+
+```bash
+# Smoke the deployed API
+curl -sS https://<railway-host>/api/v1/health
+curl -sS -X POST https://<railway-host>/api/v1/ask \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"What is the expense ratio of HDFC Large Cap Fund Direct Growth?\"}"
+```
 
 ## Known limitations
 

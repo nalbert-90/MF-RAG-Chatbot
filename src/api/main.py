@@ -18,6 +18,7 @@ from src.api.schemas import (
     SchemeItem,
     SchemesResponse,
 )
+from src.config import get_settings
 from src.guardrails.models import DISCLAIMER
 from src.guardrails.scheme_resolver import resolve_scheme_id
 from src.ingest.embed_index import IndexNotReadyError
@@ -59,16 +60,16 @@ app = FastAPI(
     version="0.1.0",
     lifespan=lifespan,
 )
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+_cors_settings = get_settings()
+_cors_middleware_kwargs: dict[str, object] = {
+    "allow_origins": _cors_settings.cors_origins_list,
+    "allow_credentials": False,
+    "allow_methods": ["*"],
+    "allow_headers": ["*"],
+}
+if _cors_settings.cors_origin_regex:
+    _cors_middleware_kwargs["allow_origin_regex"] = _cors_settings.cors_origin_regex
+app.add_middleware(CORSMiddleware, **_cors_middleware_kwargs)
 router = APIRouter(prefix="/api/v1")
 
 

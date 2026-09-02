@@ -36,6 +36,7 @@ def test_env_example_documents_required_vars() -> None:
         "GROQ_CLASSIFY_MODEL",
         "CHROMA_PATH",
         "EMBEDDING_MODEL",
+        "CORS_ORIGINS",
     ):
         assert var in content
 
@@ -79,4 +80,8 @@ def test_settings_defaults(monkeypatch: pytest.MonkeyPatch) -> None:
     assert settings.groq_classify_model == "openai/gpt-oss-20b"
     assert settings.embedding_model == "all-MiniLM-L6-v2"
     assert settings.chroma_path == "data/processed/chroma"
+    assert settings.cors_origins_list == [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
     get_settings.cache_clear()

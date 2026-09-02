@@ -22,6 +22,10 @@ function createId(): string {
 
 const DEFAULT_PLACEHOLDER = "Ask a factual question about an HDFC fund…";
 
+const API_UNAVAILABLE_MESSAGE = import.meta.env.PROD
+  ? "The assistant API is unavailable. Please try again later."
+  : "Cannot reach the API. Start the backend with: uvicorn src.api.main:app --reload";
+
 export default function App() {
   const [schemes, setSchemes] = useState<Scheme[]>([]);
   const [examples, setExamples] = useState<string[]>([]);
@@ -42,9 +46,7 @@ export default function App() {
 
       setApiConnected(healthy);
       if (!healthy) {
-        setBootstrapError(
-          "Cannot reach the API. Start the backend with: uvicorn src.api.main:app --reload",
-        );
+        setBootstrapError(API_UNAVAILABLE_MESSAGE);
         return;
       }
 
