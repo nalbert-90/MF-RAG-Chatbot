@@ -24,7 +24,7 @@ COPY data/processed/chunks.jsonl data/processed/chunks.jsonl
 
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
 
-RUN python -m src.ingest.run --rebuild
+RUN python -m src.ingest.embed_index --rebuild
 
 ENV TRANSFORMERS_OFFLINE=1
 
