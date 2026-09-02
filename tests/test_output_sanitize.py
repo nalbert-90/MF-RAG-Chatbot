@@ -1,4 +1,4 @@
-from src.rag.output_sanitize import sanitize_model_output
+from src.rag.output_sanitize import is_meta_placeholder_answer, sanitize_model_output
 
 
 def test_sanitize_strips_closed_thinking_block() -> None:
@@ -34,3 +34,9 @@ def test_sanitize_extracts_final_output_generation() -> None:
         sanitize_model_output(raw)
         == "The lock-in period for the HDFC ELSS Tax Saver Fund is 3 years."
     )
+
+
+def test_is_meta_placeholder_answer_detects_prompt_echo() -> None:
+    assert is_meta_placeholder_answer("(Just the answer text)")
+    assert is_meta_placeholder_answer("Just the answer text")
+    assert not is_meta_placeholder_answer("The expense ratio is 1.02%.")

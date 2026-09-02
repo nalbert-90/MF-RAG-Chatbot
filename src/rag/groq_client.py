@@ -6,6 +6,14 @@ from src.config import get_settings
 from src.rag.output_sanitize import sanitize_model_output
 
 
+def _reasoning_kwargs_for_answer(model: str) -> dict[str, str]:
+    """Disable Qwen thinking mode for short grounded answers (Groq reasoning API)."""
+    name = model.lower()
+    if "qwen" in name and ("3.6" in name or "3.8" in name):
+        return {"reasoning_effort": "none", "reasoning_format": "hidden"}
+    return {}
+
+
 class GroqClient:
     """Thin wrapper around the official Groq SDK."""
 
@@ -28,17 +36,23 @@ class GroqClient:
         model: str | None = None,
         temperature: float | None = None,
         max_tokens: int | None = None,
+        for_answer: bool = True,
     ) -> str:
-        response = self._client.chat.completions.create(
-            model=model or self._settings.groq_chat_model,
-            messages=messages,
-            temperature=(
+        model_name = model or self._settings.groq_chat_model
+        create_kwargs: dict[str, Any] = {
+            "model": model_name,
+            "messages": messages,
+            "temperature": (
                 temperature
                 if temperature is not None
                 else self._settings.groq_chat_temperature
             ),
-            max_tokens=max_tokens or self._settings.groq_chat_max_tokens,
-        )
+            "max_tokens": max_tokens or self._settings.groq_chat_max_tokens,
+        }
+        if for_answer:
+            create_kwargs.update(_reasoning_kwargs_for_answer(model_name))
+
+        response = self._client.chat.completions.create(**create_kwargs)
         content = response.choices[0].message.content
         if not content or not content.strip():
             raise RuntimeError("Groq returned an empty response.")
@@ -56,6 +70,7 @@ class GroqClient:
                 "temperature", settings.groq_classify_temperature
             ),
             max_tokens=kwargs.pop("max_tokens", 64),
+            for_answer=False,
         )
 
 

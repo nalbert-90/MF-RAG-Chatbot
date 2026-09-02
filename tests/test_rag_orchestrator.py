@@ -144,6 +144,21 @@ def test_factual_with_mock_groq(live_collection) -> None:
     groq.classify.assert_not_called()
 
 
+def test_placeholder_groq_output_falls_back_to_retrieved_facts(live_collection) -> None:
+    groq = MagicMock()
+    groq.classify.return_value = '{"intent":"factual"}'
+    groq.chat.return_value = "(Just the answer text)"
+
+    response = ask(
+        "What is the expense ratio of HDFC Large Cap Fund Direct Growth?",
+        groq_client=groq,
+        collection=live_collection.collection,
+    )
+    assert response.status == "answered"
+    assert "1.02" in response.answer
+    assert "just the answer" not in response.answer.lower()
+
+
 def test_performance_redirect(live_collection) -> None:
     response = ask(
         "What is the 5-year return of HDFC Large Cap Fund Direct Growth?",

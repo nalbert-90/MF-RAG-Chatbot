@@ -29,6 +29,12 @@ _META_PAREN_RE = re.compile(
     re.IGNORECASE,
 )
 _QUOTED_ANSWER_RE = re.compile(r'^["\'](.+)["\'](?:\s*\([^)]*\))?\s*$', re.DOTALL)
+_META_PLACEHOLDER_RE = re.compile(
+    r"(?:^\(?\s*)?just the answer(?:\s+text)?\s*\)?$|"
+    r"final answer text|"
+    r"^output only\b",
+    re.IGNORECASE,
+)
 
 
 def _strip_markdown(text: str) -> str:
@@ -71,3 +77,11 @@ def sanitize_model_output(text: str) -> str:
         return _clean_surface_text(extracted)
 
     return ""
+
+
+def is_meta_placeholder_answer(text: str) -> bool:
+    """True when the model echoed prompt scaffolding instead of a factual answer."""
+    cleaned = (text or "").strip()
+    if not cleaned:
+        return True
+    return bool(_META_PLACEHOLDER_RE.search(cleaned))

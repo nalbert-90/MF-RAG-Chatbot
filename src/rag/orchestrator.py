@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from src.guardrails.classifier import classify_intent
@@ -18,6 +19,7 @@ from src.guardrails.validators import validate_answer_body
 from src.ingest.embed_index import IndexNotReadyError
 from src.rag.generator import generate_answer
 from src.rag.models import AskResponse, from_guardrail
+from src.rag.output_sanitize import is_meta_placeholder_answer
 from src.rag.retriever import (
     RetrievalHit,
     retrieve_for_question,
@@ -125,7 +127,7 @@ def _generate_validated_body(
     except Exception:
         body = ""
 
-    if body and validate_answer_body(body).ok:
+    if body and _is_usable_answer(body, hits):
         return body.strip()
 
     try:
@@ -138,11 +140,31 @@ def _generate_validated_body(
     except Exception:
         retry_body = ""
 
-    if retry_body and validate_answer_body(retry_body).ok:
+    if retry_body and _is_usable_answer(retry_body, hits):
         return retry_body.strip()
 
     # Groq returned unusable reasoning-only output — fall back to retrieved facts.
     return _fallback_body_from_hits(hits)
+
+
+_DIGIT_RE = re.compile(r"\d")
+
+
+def _answer_lacks_retrieved_facts(body: str, hits: list[RetrievalHit]) -> bool:
+    """Reject answers with no numbers when retrieved chunks contain numeric facts."""
+    if _DIGIT_RE.search(body):
+        return False
+    return any(_DIGIT_RE.search(hit.text) for hit in hits)
+
+
+def _is_usable_answer(body: str, hits: list[RetrievalHit]) -> bool:
+    if not body or not validate_answer_body(body).ok:
+        return False
+    if is_meta_placeholder_answer(body):
+        return False
+    if _answer_lacks_retrieved_facts(body, hits):
+        return False
+    return True
 
 
 def _fallback_body_from_hits(hits: list[RetrievalHit]) -> str:
