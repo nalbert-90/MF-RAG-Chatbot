@@ -2,13 +2,13 @@
   "scheme_id": "hdfc_silver_etf_fof_direct_growth",
   "scheme_name": "HDFC Silver ETF FoF - Direct Growth",
   "citation_url": "https://groww.in/mutual-funds/hdfc-silver-etf-fof-direct-growth",
-  "parsed_at": "2026-09-17T09:38:55+00:00",
+  "parsed_at": "2026-09-18T09:10:29+00:00",
   "source_html_path": "raw/hdfc_silver_etf_fof_direct_growth/scheme_page.html",
-  "source_fetched_at": "2026-09-17T09:38:52+00:00",
-  "source_sha256": "2a38cbf48034b78b370809aa137be4e54cb9da0ceb26996575d98bc2a4a3a1ee",
+  "source_fetched_at": "2026-09-18T09:10:27+00:00",
+  "source_sha256": "7b34be55e7b1663b8a8fce9626141bd2cbc3dbe648009b7d71468f338bfee0b9",
   "output_path": "hdfc_silver_etf_fof_direct_growth/scheme_page.txt",
   "line_count": 47,
-  "char_count": 1269,
+  "char_count": 1270,
   "status": "ok",
   "error": null
 }
