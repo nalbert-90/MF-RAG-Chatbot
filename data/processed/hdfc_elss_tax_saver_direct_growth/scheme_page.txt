@@ -1,5 +1,5 @@
 Lock-in period: 3Y
-NAV: 23 Sep '26 ₹1,468.54 Min. for SIP ₹500 Fund size (AUM) ₹15,991.78 Cr Expense ratio 1.21% Rating 5
+NAV: 24 Sep '26 ₹1,441.84 Min. for SIP ₹500 Fund size (AUM) ₹15,991.78 Cr Expense ratio 1.21% Rating 5
 Exit load, stamp duty and tax Exit load Nil Stamp duty on investment: 0.005% (from July 1st, 2020) from July 1st 2020 Tax implication If you redeem within one year, returns are taxed at 20%. If you redeem after one year, returns exceeding Rs 1.25 lakh in a financial year are taxed at 12.5%. Check past data
 Fund benchmark NIFTY 500 Total Return Index Scheme Information Document(SID)
 ### Return calculator
@@ -9,31 +9,33 @@ Would've become
 Historic returns
 1 year
 ₹60,000
-₹60,306
-+ 0.51 %
+₹57,736
+-3.77 %
 3 years
 ₹1,80,000
-₹1,98,886
-+ 10.49 %
+₹1,87,235
++ 4.02 %
 5 years
 ₹3,00,000
-₹4,17,581
-+ 39.19 %
+₹3,92,814
++ 30.94 %
 10 years
 ₹6,00,000
-₹12,98,619
-+ 116.44 %
+₹12,23,845
++ 103.97 %
 ### Returns and rankings
 10Y
 All
 Fund returns
-+13.0%
++12.3%
++13.3%
++12.8%
 +13.7%
-+13.9%
 Category average ( Equity ELSS )
-+16.4%
-+16.5%
-+14.0%
++11.1%
++10.8%
++13.4%
++17.2%
 Rank ( Equity ELSS )
 ### Exit load, stamp duty and tax
 #### Exit load
