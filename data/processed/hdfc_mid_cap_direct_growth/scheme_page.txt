@@ -1,4 +1,4 @@
-NAV: 06 Oct '26 ₹222.03 Min. for SIP ₹100 Fund size (AUM) ₹1,08,324.54 Cr Expense ratio 0.76% Rating 4
+NAV: 07 Oct '26 ₹220.87 Min. for SIP ₹100 Fund size (AUM) ₹1,08,324.54 Cr Expense ratio 0.76% Rating 4
 Exit load, stamp duty and tax Exit load Exit load of 1% if redeemed within 1 year. Stamp duty on investment: 0.005% (from July 1st, 2020) from July 1st 2020 Tax implication If you redeem within one year, returns are taxed at 20%. If you redeem after one year, returns exceeding Rs 1.25 lakh in a financial year are taxed at 12.5%. Check past data
 Fund benchmark NIFTY Midcap 150 Total Return Index Scheme Information Document(SID)
 HDFC ELSS Tax Saver Fund Direct Plan Growth
@@ -8,26 +8,26 @@ Total investment
 Would've become
 Historic returns
 ₹60,000
-₹59,898
--0.17 %
+₹59,597
+-0.67 %
 3 years
 ₹1,80,000
-₹2,00,611
-+ 11.45 %
+₹1,99,541
++ 10.86 %
 5 years
 ₹3,00,000
-₹4,46,628
-+ 48.88 %
+₹4,44,189
++ 48.06 %
 10 years
 ₹6,00,000
-₹15,93,091
-+ 165.52 %
+₹15,84,628
++ 164.10 %
 ### Returns and rankings
 10Y
 All
 Fund returns
-+15.7%
-+17.6%
++15.5%
++17.1%
 +16.5%
 +19.6%
 Category average ( Equity Mid Cap )
