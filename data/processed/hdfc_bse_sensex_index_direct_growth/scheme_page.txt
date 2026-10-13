@@ -1,4 +1,4 @@
-NAV: 09 Oct '26 ₹693.75 Min. for SIP ₹100 Fund size (AUM) ₹7,972.95 Cr Expense ratio 0.22% Rating 1
+NAV: 12 Oct '26 ₹688.49 Min. for SIP ₹100 Fund size (AUM) ₹7,972.95 Cr Expense ratio 0.22% Rating 1
 Exit load, stamp duty and tax Exit load Exit load of 0.25% if redeemed within 3 days Stamp duty on investment: 0.005% (from July 1st, 2020) from July 1st 2020 Tax implication If you redeem within one year, returns are taxed at 20%. If you redeem after one year, returns exceeding Rs 1.25 lakh in a financial year are taxed at 12.5%. Check past data
 Fund benchmark BSE Sensex Total Return Index Scheme Information Document(SID)
 ### Return calculator
@@ -8,28 +8,28 @@ Would've become
 Historic returns
 1 year
 ₹60,000
-₹55,769
--7.05 %
+₹55,441
+-7.60 %
 3 years
 ₹1,80,000
-₹1,70,917
--5.05 %
+₹1,69,703
+-5.72 %
 5 years
 ₹3,00,000
-₹3,21,722
-+ 7.24 %
+₹3,19,212
++ 6.40 %
 10 years
 ₹6,00,000
-₹9,56,520
-+ 59.42 %
+₹9,48,593
++ 58.10 %
 ### Returns and rankings
 10Y
 All
 Fund returns
-+4.3%
-+4.8%
-+10.9%
-+11.1%
++3.6%
++4.6%
++10.8%
++11.0%
 Category average ( Equity Large Cap )
 +9.4%
 +7.9%
