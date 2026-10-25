@@ -8,32 +8,33 @@ Would've become
 Historic returns
 1 year
 ₹60,000
-₹56,601
--5.67 %
+₹56,537
+-5.77 %
 3 years
 ₹1,80,000
-₹1,72,928
--3.93 %
+₹1,72,673
+-4.07 %
 5 years
 ₹3,00,000
-₹3,24,885
-+ 8.29 %
+₹3,24,330
++ 8.11 %
 10 years
 ₹6,00,000
-₹9,64,017
-+ 60.67 %
+₹9,62,012
++ 60.34 %
 ### Returns and rankings
 10Y
 All
 Fund returns
++5.2%
 +4.8%
 +11.0%
 +11.1%
 Category average ( Equity Large Cap )
-+9.3%
-+7.8%
-+11.7%
-+12.4%
++9.6%
++7.6%
++11.6%
++12.3%
 Rank ( Equity Large Cap )
 ### Exit load, stamp duty and tax
 #### Exit load
