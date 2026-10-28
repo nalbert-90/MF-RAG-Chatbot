@@ -2,13 +2,13 @@
   "scheme_id": "hdfc_bse_sensex_index_direct_growth",
   "scheme_name": "HDFC BSE Sensex Index Fund - Direct Growth",
   "citation_url": "https://groww.in/mutual-funds/hdfc-bse-sensex-index-fund-direct-growth",
-  "parsed_at": "2026-10-27T10:01:23+00:00",
+  "parsed_at": "2026-10-28T10:48:47+00:00",
   "source_html_path": "raw/hdfc_bse_sensex_index_direct_growth/scheme_page.html",
-  "source_fetched_at": "2026-10-27T10:01:21+00:00",
-  "source_sha256": "661a8dacd1d7428098b77e1cea586b5f54d05df22c9162f6c392e5abf3e073c0",
+  "source_fetched_at": "2026-10-28T10:48:44+00:00",
+  "source_sha256": "7d0e55d426dc2c39fc49fe10fb9944d81b384c55c61615203ead18a1e7657dbf",
   "output_path": "hdfc_bse_sensex_index_direct_growth/scheme_page.txt",
-  "line_count": 49,
-  "char_count": 1313,
+  "line_count": 48,
+  "char_count": 1306,
   "status": "ok",
   "error": null
 }
