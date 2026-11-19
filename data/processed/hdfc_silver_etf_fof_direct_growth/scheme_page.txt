@@ -1,4 +1,4 @@
-NAV: 17 Nov '26 ₹27.73 Min. for SIP ₹100 Fund size (AUM) ₹3,787.89 Cr Expense ratio 0.22% Rating --
+NAV: 18 Nov '26 ₹26.80 Min. for SIP ₹100 Fund size (AUM) ₹3,787.89 Cr Expense ratio 0.22% Rating --
 Exit load, stamp duty and tax Exit load Exit load of 1%, if redeemed within 15 days. Stamp duty on investment: 0.005% (from July 1st, 2020) from July 1st 2020 Tax implication If you redeem within two years, returns are taxed as per your Income Tax slab. If you redeem after two years, returns are taxed at 12.5%. Check past data
 Fund benchmark Domestic Price of Silver Scheme Information Document(SID)
 ### Return calculator
@@ -8,27 +8,27 @@ Would've become
 Historic returns
 3 months
 ₹15,000
-₹13,143
--12.38 %
+₹12,905
+-13.97 %
 6 months
 ₹30,000
-₹24,243
--19.19 %
+₹23,649
+-21.17 %
 1 year
 ₹60,000
-₹46,466
--22.56 %
+₹45,136
+-24.77 %
 3 years
 ₹1,80,000
-₹2,57,719
-+ 43.18 %
+₹2,49,184
++ 38.44 %
 ### Returns and rankings
 All
 Fund returns
--35.5%
-+7.2%
-+30.0%
-+28.8%
+-38.8%
++5.3%
++28.5%
++27.7%
 Category average ( Commodities Silver )
 -37.2%
 +10.0%
